@@ -6,7 +6,7 @@ site:
 content:
   sources:
     - url: https://github.com/jhkrug/kw-ad
-    branches: [main]
+      branches: [main]
 
 ui:
   bundle:
