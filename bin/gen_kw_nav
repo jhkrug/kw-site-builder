@@ -1,0 +1,19 @@
+#!/bin/bash
+
+srcdir=~/projects/suse/kubewarden-docs/docs
+navfile=~/projects/suse/kwaa/kw-ad/modules/ROOT/nav.adoc.new
+
+cd $srcdir || exit 1
+
+function nstars {
+	local n=$1
+	printf '%*s' "$n" | tr ' ' '*'
+	# perl -E "print '*' x $n"
+}
+
+
+find . -name '*.md' | while read -r fmd; do
+	fmd=$(echo "$fmd" | sed 's/\.\///')
+	title=$(grep 'title:' "$fmd" | head -1| cut -f2- -d' ')
+	echo "$(nstars 1) xref:$fmd"["$title"] | sed 's/\.md/\.adoc/'
+done > "$navfile"
