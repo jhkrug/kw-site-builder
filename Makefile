@@ -4,8 +4,8 @@ local:
 
 netlify:
 	mkdir -p tmp
-	npm -g install
-	antora --log-format=pretty kw-netlify-playbook.yml > tmp/build.log 2>&1
+	npm install && npm update
+	npx antora --log-format=pretty kw-netlify-playbook.yml
 
 gen_nav:
 	bin/gen_kw_nav
