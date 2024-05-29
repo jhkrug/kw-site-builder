@@ -1,3 +1,42 @@
 = Kubewarden
 
 Site builder for Kubewarden asciidoc.
+
+== Migration notes
+
+I used Guna's script to translate the markdown files to asciidoc. The
+kramdown_md_to_asciidoc seemed to best preserve the frontmatter content so I
+tried that first. Issues noticed so far:
+
+- Docusaurus style admonitions aren't translated at all. This is unsurprising
+as they're a Docusaurus feature.
+
+- Code blocks are mostly translated well, with an exception if inside a
+Docusaurus collapsible section.
+
+- In code blocks any line numbering or line highlighting is lost but can be done
+in a different way in asciidoc.
+
+- Code blocks in collapsible sections are migrated, but any contained code block
+is included but a bit mangled, all new lines are stripped out.
+
+- asciidoc doesn't appear to have a capability for tabbed sections, as is
+commonly seen for Windows/MacOS/Linux alternatives. Maybe there is a plugin or
+equivalent to do this. I don't think the current Kubewarden docs use this
+feature.
+
+- links/xrefs Don't work. Migrated as links, but need changing to xrefs. Paths
+need checking as well. A full path to asciidoc files is needed.
+
+- image links Don't work. They just need to have the '/img/' prefix removed.
+That should be easy enough to automate.
+
+If using pandoc_md_to_asciidoc, the frontmatter is mangled. Codeblocks are done
+better, including those inside collapsible sections. The collapsible part is
+removed.
+
+=== Next steps
+
+Choose the best and add additional script processing to help fix issues.
+Try write this so that other projects can add additional scripts as extensions.
+
