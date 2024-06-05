@@ -31,7 +31,7 @@ need checking as well. A full path to asciidoc files is needed.
 - image links Don't work. They just need to have the '/img/' prefix removed.
 That should be easy enough to automate.
 
-If using pandoc_md_to_asciidoc, the frontmatter is mangled. Codeblocks are done
+If using pandoc_md_to_asciidoc, the frontmatter is mangled. Code blocks are done
 better, including those inside collapsible sections. The collapsible part is
 removed.
 
@@ -39,4 +39,3 @@ removed.
 
 Choose the best and add additional script processing to help fix issues.
 Try write this so that other projects can add additional scripts as extensions.
-
