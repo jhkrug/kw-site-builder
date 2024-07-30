@@ -1,6 +1,6 @@
 local:
 	mkdir -p tmp
-	npx antora --log-format=pretty kw-local-playbook.yml > tmp/build.log 2>&1
+	npx antora --log-format=pretty kw-local-playbook.yml | tee tmp/build.log 2>&1
 
 netlify:
 	mkdir -p tmp
